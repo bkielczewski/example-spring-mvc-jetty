@@ -64,6 +64,15 @@
                 </configuration>
             </plugin>
 
+            <!-- WAR -->
+
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
             <!-- Jetty -->
 
             <plugin>
