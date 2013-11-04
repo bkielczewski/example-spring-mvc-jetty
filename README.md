@@ -12,4 +12,4 @@ Requirements
 Quick start
 -----------
 1. `mvn jetty:run`
-2. Point your browser to http://localhost:8080/
+2. Point your browser to [http://localhost:8080/](http://localhost:8080/)
