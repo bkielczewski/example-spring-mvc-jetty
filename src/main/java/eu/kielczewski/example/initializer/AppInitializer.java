@@ -13,8 +13,8 @@ import javax.servlet.ServletRegistration;
 @SuppressWarnings("UnusedDeclaration")
 public class AppInitializer implements WebApplicationInitializer {
 
-    public static final String CONFIG_LOCATION = "eu.kielczewski.example.config";
-    public static final String MAPPING_URL = "/*";
+    private static final String CONFIG_LOCATION = "eu.kielczewski.example.config";
+    private static final String MAPPING_URL = "/*";
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
