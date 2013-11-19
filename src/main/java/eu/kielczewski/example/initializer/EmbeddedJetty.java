@@ -3,6 +3,8 @@ package eu.kielczewski.example.initializer;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
@@ -13,14 +15,33 @@ import java.io.IOException;
 
 public class EmbeddedJetty {
 
+    private static final Logger logger = LoggerFactory.getLogger(EmbeddedJetty.class);
+    private static final int DEFAULT_PORT = 8080;
     private static final String CONFIG_LOCATION = "eu.kielczewski.example.config";
     private static final String MAPPING_URL = "/*";
     private static final String CONTEXT_PATH = "/";
 
     public static void main(String[] args) throws Exception {
-        Server server = new Server(8080);
+        new EmbeddedJetty().startJetty(getPortFromArgs(args));
+    }
+
+    private static int getPortFromArgs(String[] args) {
+        if (args.length > 0) {
+            try {
+                return Integer.valueOf(args[0]);
+            } catch (NumberFormatException ignore) {
+            }
+        }
+        logger.debug("No server port configured, falling back to {}", DEFAULT_PORT);
+        return DEFAULT_PORT;
+    }
+
+    private void startJetty(int port) throws Exception {
+        logger.debug("Starting server at port {}", port);
+        Server server = new Server(port);
         server.setHandler(getServletContextHandler(getContext()));
         server.start();
+        logger.info("Server started at port {}", port);
         server.join();
     }
 
