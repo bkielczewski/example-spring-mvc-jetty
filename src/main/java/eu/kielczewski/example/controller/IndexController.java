@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SuppressWarnings("UnusedDeclaration")
 public class IndexController {
 
+    @SuppressWarnings("SameReturnValue")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseBody
     public String showIndex() {

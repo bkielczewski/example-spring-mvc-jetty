@@ -1,7 +1,7 @@
 Spring MVC Initializer Example
 ==============================
 
-Basic Spring MVC 3.2.x application using `WebApplicationInitializer` instead of `web.xml`.
+Basic Spring MVC 3.2.x application using embedded Jetty server
 
 Check out [kielczewski.eu/blog](http://kielczewski.eu/blog)!
 
@@ -12,5 +12,7 @@ Requirements
 
 Quick start
 -----------
-1. `mvn jetty:run`
-2. Point your browser to [http://localhost:8080/](http://localhost:8080/)
+1. `mvn package`
+2. `java -jar target/example-spring-jetty-1.0-SNAPSHOT.jar`
+3. Point your browser to [http://localhost:8080](http://localhost:8080)
+4. Point your browser to [http://localhost:8080/images/spring_logo.png](http://localhost:8080/images/spring_logo.png)
