@@ -9,10 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-    private static final int RESOURCE_CACHE_PERIOD = 31556926;
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("images/**").addResourceLocations("images/").setCachePeriod(RESOURCE_CACHE_PERIOD);
+        registry.addResourceHandler("images/**").addResourceLocations("images/");
     }
 }
